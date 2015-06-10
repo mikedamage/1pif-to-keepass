@@ -4,5 +4,33 @@
         <Generator>1pif-to-keepass</Generator>
         <RecycleBinEnabled>True</RecycleBinEnabled>
     </Meta>
-    <Root></Root>
+    <Root>
+        <Group>
+            <Name>Database</Name>
+            <Notes />
+            <IconID>1</IconID>
+            <Times>
+                <CreationTime></CreationTime>
+                <Expires>False</Expires>
+            </Times>
+            <IsExpanded>True</IsExpanded>
+            <DefaultAutoTypeSequence />
+            <EnableAutoType>null</EnableAutoType>
+            <EnableSearching>True</EnableSearching>
+
+            <Group>
+                <Name>Imported</Name>
+                <Notes />
+                <IconID>1</IconID>
+                <Times>
+                    <CreationTime></CreationTime>
+                    <Expires>False</Expires>
+                </Times>
+                <IsExpanded>True</IsExpanded>
+                <DefaultAutoTypeSequence />
+                <EnableAutoType>null</EnableAutoType>
+                <EnableSearching>True</EnableSearching>
+            </Group>
+        </Group>
+    </Root>
 </KeePassFile>
