@@ -14,9 +14,9 @@
   },
   "main": "index.js",
   "dependencies": {
+    "cheerio": "^0.19.0",
     "lodash": "^3.9.3",
     "split": "^1.0.0",
-    "through2": "^0.6.5",
-    "xmldom": "^0.1.19"
+    "through2": "^0.6.5"
   }
 }
