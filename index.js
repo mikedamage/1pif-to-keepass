@@ -2,15 +2,17 @@
 
 'use strict';
 
-var _           = require('lodash');
-var fs          = require('fs');
-var path        = require('path');
-var util        = require('util');
-var events      = require('events');
-var DOMParser   = require('xmldom').DOMParser;
-var jsonStream  = require('./lib/json-stream');
-var dataHandler = require('./lib/data-handler');
-var endHandler  = require('./lib/end-handler');
+var _             = require('lodash');
+var fs            = require('fs');
+var path          = require('path');
+var util          = require('util');
+var events        = require('events');
+var xmldom        = require('xmldom');
+var jsonStream    = require('./lib/json-stream');
+var dataHandler   = require('./lib/data-handler');
+var endHandler    = require('./lib/end-handler');
+var DOMParser     = xmldom.DOMParser;
+var XMLSerializer = xmldom.XMLSerializer;
 
 var defaults = {
   output: process.stdout
@@ -23,6 +25,7 @@ var OnePassConverter = function OnePassConverter(input, options) {
   this.inputStream = fs.createReadStream(this.input);
   this.entries     = {};
   this.xmlParser   = new DOMParser();
+  this.serializer  = new XMLSerializer();
 
   events.EventEmitter.call(this);
 };
