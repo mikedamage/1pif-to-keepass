@@ -2,15 +2,15 @@
 
 'use strict';
 
-var _             = require('lodash');
-var fs            = require('fs');
-var path          = require('path');
-var util          = require('util');
-var events        = require('events');
-var jsonStream    = require('./lib/json-stream');
-var cheerio       = require('cheerio');
-var dataHandler   = require('./lib/data-handler');
-var endHandler    = require('./lib/end-handler');
+var _           = require('lodash');
+var fs          = require('fs');
+var path        = require('path');
+var util        = require('util');
+var events      = require('events');
+var jsonStream  = require('./lib/json-stream');
+var cheerio     = require('cheerio');
+var dataHandler = require('./lib/data-handler');
+var endHandler  = require('./lib/end-handler');
 
 var defaults = {
   output: process.stdout
