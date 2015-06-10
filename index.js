@@ -7,7 +7,7 @@ var fs          = require('fs');
 var path        = require('path');
 var util        = require('util');
 var events      = require('events');
-var DomParser   = require('xmldom').DomParser;
+var DOMParser   = require('xmldom').DOMParser;
 var jsonStream  = require('./lib/json-stream');
 var dataHandler = require('./lib/data-handler');
 var endHandler  = require('./lib/end-handler');
@@ -22,6 +22,7 @@ var OnePassConverter = function OnePassConverter(input, options) {
   this.options     = _.assign(defaults, options);
   this.inputStream = fs.createReadStream(this.input);
   this.entries     = {};
+  this.xmlParser   = new DOMParser();
 
   events.EventEmitter.call(this);
 };
@@ -32,7 +33,7 @@ OnePassConverter.prototype.start = function() {
   this.emit('start', this.input, this.options);
 
   fs.readFile(path.join(__dirname, 'xml-starter.xml'), _.bind(function(xml) {
-    this.xml        = new DomParser().parseFromString(xml);
+    this.xml        = this.xmlParser.parseFromString(xml.toString());
     this.jsonStream = jsonStream(this.inputStream)
       .on('data', _.bind(dataHandler, this))
       .on('end', _.bind(endHandler, this));
