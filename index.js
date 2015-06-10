@@ -34,7 +34,7 @@ OnePassConverter.prototype.start = function() {
   fs.readFile(path.join(__dirname, 'xml-starter.xml'), _.bind(function(err, xml) {
     if (err) throw err;
 
-    this.xml        = cheerio.load(xml.toString());
+    this.xml        = cheerio.load(xml.toString(), { xmlMode: true });
     this.jsonStream = jsonStream(this.inputStream)
       .on('data', _.bind(dataHandler, this))
       .on('end', _.bind(endHandler, this));
