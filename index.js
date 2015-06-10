@@ -23,7 +23,7 @@ var OnePassConverter = function OnePassConverter(input, options) {
   this.input       = input;
   this.options     = _.assign(defaults, options);
   this.inputStream = fs.createReadStream(this.input);
-  this.entries     = {};
+  this.entries     = [];
   this.xmlParser   = new DOMParser();
   this.serializer  = new XMLSerializer();
 
@@ -35,8 +35,11 @@ util.inherits(OnePassConverter, events.EventEmitter);
 OnePassConverter.prototype.start = function() {
   this.emit('start', this.input, this.options);
 
-  fs.readFile(path.join(__dirname, 'xml-starter.xml'), _.bind(function(xml) {
+  fs.readFile(path.join(__dirname, 'xml-starter.xml'), _.bind(function(err, xml) {
+    if (err) throw err;
+
     this.xml        = this.xmlParser.parseFromString(xml.toString());
+    this.xmlRoot    = this.xml.documentElement.getElementsByTagName('root')[0];
     this.jsonStream = jsonStream(this.inputStream)
       .on('data', _.bind(dataHandler, this))
       .on('end', _.bind(endHandler, this));
