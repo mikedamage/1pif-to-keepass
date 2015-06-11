@@ -18,10 +18,12 @@ var defaults = {
 
 var OnePassConverter = function OnePassConverter(input, options) {
 
-  this.input       = input;
-  this.options     = _.assign(defaults, options);
-  this.inputStream = fs.createReadStream(this.input);
-  this.entries     = [];
+  this.input        = input;
+  this.options      = _.assign(defaults, options);
+  this.inputStream  = fs.createReadStream(this.input);
+  this.outputStream = _.isString(this.options.output) ?
+    fs.createWriteStream(this.options.output) : this.options.output;
+  this.entries      = [];
 
   events.EventEmitter.call(this);
 };

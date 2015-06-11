@@ -1,5 +1,45 @@
 <Entry>
+  <IconID>0</IconID>
   <Times>
+    <CreationTime><%= creationTime %>Z</CreationTime>
+    <LastModificationTime><%= lastModificationTime %>Z</LastModificationTime>
+    <Expires>False</Expires>
   </Times>
+  <String>
+    <Key>Title</Key>
+    <Value><%= title %></Value>
+  </String>
+  <String>
+    <Key>Notes</Key>
+    <% if (!_.isEmpty(notes)) { %>
+      <Value><%= notes %></Value>
+    <% } else { %>
+      <Value />
+    <% } %>
+  </String>
+  <String>
+    <Key>URL</Key>
+    <% if (!_.isEmpty(url)) { %>
+      <Value><%= url %></Value>
+    <% } else { %>
+      <Value />
+    <% } %>
+  </String>
+  <String>
+    <Key>UserName</Key>
+    <% if (!_.isEmpty(username)) { %>
+      <Value><%= username %></Value>
+    <% } else { %>
+      <Value />
+    <% } %>
+  </String>
+  <String>
+    <Key>Password</Key>
+    <% if (!_.isEmpty(password)) { %>
+      <Value ProtectInMemory="True"><%= password %></Value>
+    <% } else { %>
+      <Value ProtectInMemory="True" />
+    <% } %>
+  </String>
 </Entry>
 <%// vim: set ts=2 sw=2 expandtab : %>
