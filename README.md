@@ -28,11 +28,11 @@ npm link
 ```js
 var OPC = require('1pif-to-keepass');
 
-# If you don't specify an output option, it will default to STDOUT.
+// If you don't specify an output option, it will default to STDOUT.
 var converter = new OPC('data.1pif', { output: 'file.xml' });
 
-# OPC is an EventEmitter, so it will notify you about various stages of the conversion
-# process:
+// OPC is an EventEmitter, so it will notify you about various stages of the conversion
+// process:
 
 converter.on('data', function(data) {
   console.log('Parsed entry: %O', data);
