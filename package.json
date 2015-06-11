@@ -14,11 +14,13 @@
   },
   "main": "index.js",
   "dependencies": {
+    "chalk": "^1.0.0",
     "cheerio": "^0.19.0",
+    "cli-spinner": "^0.2.1",
     "html-entities": "^1.1.2",
     "lodash": "^3.9.3",
     "moment": "^2.10.3",
     "split": "^1.0.0",
-    "through2": "^0.6.5"
+    "yargs": "^3.10.0"
   }
 }
