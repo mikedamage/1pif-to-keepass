@@ -28,7 +28,7 @@ var argv    = require('yargs')
   .argv;
 
 if (!fs.existsSync(argv._[0])) {
-  console.log(chalk.red('File') + chalk.bold(' %s ') + chalk.red('does not exist!'), argv._[0]);
+  console.log('File %s does not exist!', chalk.bold.red(argv._[0]));
   process.exit(1);
 }
 
