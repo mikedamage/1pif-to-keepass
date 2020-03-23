@@ -44,6 +44,7 @@ if (argv.output !== '-') {
 
 converter.on('data', function(data) {
   counter++;
+    process.stdout.write("" + counter + " entries exported\n")
 });
 
 converter.on('end', function() {
