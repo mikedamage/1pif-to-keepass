@@ -1,7 +1,7 @@
 {
   "name": "1pif-to-keepass",
   "description": "Convert a 1Password export to an XML file importable by KeePass 2",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Mike Green <mike.is.green@gmail.com>",
   "preferGlobal": true,
